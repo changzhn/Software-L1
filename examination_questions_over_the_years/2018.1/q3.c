@@ -45,3 +45,15 @@ int getSum(int n) {
 }
 
 // 求n个不小于0数之和
+
+ int getSum_v2(int n)
+{
+    int t, i = 0, sum = 0;
+    for(i = 0; i<n; i++) {           
+        scanf("%d",&t);
+            if (t < 0)
+                continue;
+            sum += t;
+    }
+    return sum;
+}

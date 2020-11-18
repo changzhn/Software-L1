@@ -26,6 +26,7 @@ int main()
     int numWord = 0;
 
     while(numWord < NUMBER) {
+        // scanf("%s", (1));
         scanf("%s", word);
         if (isValid(word)) {
             if (numWord == 0) {
@@ -33,8 +34,10 @@ int main()
                 usr_strcpy(maxWord, word);
             }
             numWord++;
+            // if ((2)) > 0) {
             if (usr_strcmp(word, maxWord) > 0) {
                 usr_strcpy(maxWord, word);
+            // } else if ((3)) < 0) {
             } else if (usr_strcmp(word, minWord) < 0) {
                 usr_strcpy(minWord, word);
             }
@@ -57,12 +60,14 @@ int isValid(const char *s) {
 
 char toLower(char ch) {
     if (ch >= 'A' && ch <= 'Z') {
+        //  ch = (4) + 'a';
         ch = ch - 'A' + 'a';
     }
     return ch;
 }
 
 int usr_strcmp(char *s1, char *s2) {
+    // for(;(5);) {
     for(;*s1 || *s2;) {
         if (toLower(*s1) == toLower(*s2)) {
             s1++;
@@ -75,7 +80,8 @@ int usr_strcmp(char *s1, char *s2) {
 }
 
 void usr_strcpy(char *s1, char *s2) {
-    for(;s2;) {
+    // for(;(6);) {
+    for(;*s2;) {
         *s1++ = *s2++;
     }
     *s1 = '\0';

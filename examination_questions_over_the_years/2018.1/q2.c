@@ -14,13 +14,16 @@ void insertSort(int data[], int n)
     for(i = 1; i < n; i++) {
         if (data[i] < data[i - 1]) {
             tmp = data[i];
+            // data[i] = (1)
             data[i] = data[i - 1];
             data[i - 1] = tmp;
 
             for(j = i - 2; j >= 0 && data[j] > tmp; j--) {
+                // (2)
                 data[j + 1] = data[j];
-                data[j] = tmp;
             }
+            // (3) = tmp;
+            data[j + 1] = tmp;
         }
     }
 }
@@ -31,9 +34,11 @@ int main()
     int n, arr[] = {17, 392, 68, 36, 291, 776, 843, 255};
     n = sizeof(arr) / sizeof(int);
     insertSort(arr, n);
+    // bp = (4)
     bp = arr;
     ep = arr + n;
     for(;bp < ep; bp++) {
+        // printf("%d\n", (5));
         printf("%d\n", *bp);
     }
     return 0;

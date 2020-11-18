@@ -11,3 +11,4 @@
 ## 笔记
 
 - [JAVA](./notes/java.md)
+- [C](./notes/c.md)
