@@ -2,9 +2,12 @@ import java.util. ArrayList;
 import java.util.List;
 
 interface PaymentMethod {
+    // public (1);
     public void pay(int cents);
 }
 
+// Cash、DebitCard和Item实现略，Item中getPrice( )获取当前物品对象的价格
+// abstract class Card (2) {
 abstract class Card implements PaymentMethod {
     private final String name, num;
     public Card(String name, String num) {
@@ -27,8 +30,10 @@ abstract class Card implements PaymentMethod {
     protected abstract void executeTransaction(int cents);
 }
 
+// class CreditCard (3) {
 class CreditCard extends Card {
     public CreditCard(String name, String num) {
+        //  (4);
         super(name, num);
     }
 
@@ -49,10 +54,10 @@ class Bill {
         items.add(item);
     }
 
-    public intgetTotalPrice() {}
+    public int getTotalPrice() {}
 
     public void pay(PaymentMethod paymentMethod) {
-        // TODO:
+        paymentMethod.pay(getTotalPrice());
     }
 }
 
@@ -62,6 +67,7 @@ public class PaymentSystem {
     }
 
     public static void main(String[] args) {
+        // (6) payment = new PaymentSystem();
         PaymentSystem payment = new PaymentSystem();
         payment.pay();
     }

@@ -7,10 +7,12 @@ enum Note {
 }
 
 abstract class Instrument {
+    // (1)
     abstract void play(Note n);
     abstract void adjust();
 }
 
+// class Wind (2) {
 class Wind extends Instrument {
     public void play(Note n) {
         System.out.println("wind.play() " + n);
@@ -21,6 +23,7 @@ class Wind extends Instrument {
     }
 }
 
+// class Brass (3) {
 class Brass extends Wind {
     public void play(Note n) {
         System.out.println("Brass.play() " + n);
@@ -45,6 +48,7 @@ public class Music {
         i.adjust();
     }
 
+    // void tuneAll((4) e) {
     void tuneAll(ArrayList<Instrument> e) {
         for(int j = 0; j < e.size(); j++) {
             Instrument i = e.get(j);
@@ -53,6 +57,7 @@ public class Music {
         }
     }
     public static void main(String[] args) {
+        // (5) music = new Music();
         Music music = new Music();
         ArrayList<Instrument> orchestra = new ArrayList<>();
         orchestra.add(new Wind());

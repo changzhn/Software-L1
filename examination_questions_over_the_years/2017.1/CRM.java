@@ -1,9 +1,12 @@
 abstract class Customer {
     protected String name;
+    // (1) boolean isNill();
     abstract boolean isNill();
+    // (2) String getName();
     abstract String getName();
 }
 
+// class RealCustomer (3) Customer {
 class RealCustomer extends Customer {
     public RealCustomer(String name) {
         this.name = name;
@@ -18,6 +21,7 @@ class RealCustomer extends Customer {
     }
 }
 
+//class NullCustomer (4) Customer {
 class NullCustomer extends Customer {
     public String getName() {
         return "Not Avaliable";
@@ -32,16 +36,19 @@ class CustomerFactory {
     public String[] names = {"Rob", "Joe", "Julie"};
     public Customer getCustomer(String name) {
         for(int i = 0; i < names.length; i++) {
+            // if (names[i].(5)) {
             if (names[i].equals(name)) {
                 return new RealCustomer(names[i]);
             }
         }
+        // return (6);
         return new NullCustomer();
     }
 }
 
 public class CRM {
     public void getCustomer() {
+        // CustomerFactory (7);
         CustomerFactory cf = new CustomerFactory();
         Customer customer1 = cf.getCustomer("Rob");
         Customer customer2 = cf.getCustomer("Bob");
